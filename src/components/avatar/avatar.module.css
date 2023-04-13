@@ -1,0 +1,159 @@
+.container {
+    display: flex;
+    height: 200px;
+    width: 100%;
+}
+
+.profile {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid #FFF;
+    overflow: hidden;
+    background: #E5E1EC;
+}
+
+.head {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    margin: auto;
+    top: 50px;
+}
+
+.face {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: #FFD9C2;
+    border-radius: 45%;
+    z-index: 20;
+    left: 10px;
+    border-bottom: solid #FFC3AD 5px;
+}
+
+.hair {
+    position: absolute;
+    width: 100px;
+    height: 110px;
+    background: #5C4033;
+    border-radius: 35%;
+    z-index: 3;
+    top: -5px;
+}
+
+.bangsLeft {
+    z-index: 100;
+    position: absolute;
+    width: 40px;
+    height: 60px;
+    background: #5C4033;
+    border-radius: 50%;
+    transform: rotate(45deg);
+    top: -9px;
+}
+
+.bangsRight {
+    z-index: 100;
+    position: absolute;
+    width: 25px;
+    height: 60px;
+    background: #5C4033;
+    border-radius: 50%;
+    transform: rotate(-50deg);
+    top: -13px;
+    left: 53px;
+}
+
+.eyes {
+    z-index: 21;
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    background: #6F4E37;
+    border-radius: 50%;
+    top: 55%;
+    left: 27%;
+    box-shadow: 27px 0px #6F4E37;
+}
+
+.nose {
+    position: absolute;
+    background: #FFC9A9;
+    height: 6px;
+    width: 6px;
+    top: 55px;
+    left: 37px;
+    border-radius: 50%;
+}
+
+.mouth {
+    z-index: 21;
+    position: absolute;
+    border-bottom: black solid 2px;
+    height: 9px;
+    width: 40px;
+    top: 60px;
+    left: 22px;
+    border-radius: 50%;
+}
+
+.glasses {
+    position: absolute;
+    z-index: 22;
+}
+
+.glassesLeft {
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border: solid purple 3px;
+    border-radius: 30%;
+    z-index: 29;
+    top: 38px;
+    left: 17px;
+}
+
+.glassesRight {
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border: solid purple 3px;
+    border-radius: 30%;
+    z-index: 29;
+    left: 43px;
+    top: 38px;
+}
+
+.nosePiece {
+    position: absolute;
+    height: 2px;
+    width: 8px;
+    background: purple;
+    z-index: 29;
+    top: 50px;
+    left: 38px;
+}
+
+.neck {
+    position: relative;
+    background: #FFD9C2;
+    height: 20px;
+    width: 25px;
+    left: 88px;
+    top: 34px;
+    z-index: 101;
+    border-radius: 0 0 50% 50%;
+}
+
+.torso {
+    position: relative;
+    background: #6E519B;
+    border-radius: 50%;
+    height: 200px;
+    width: 100px;
+    z-index: 100;
+    left: 50px;
+    top: 15px;
+}

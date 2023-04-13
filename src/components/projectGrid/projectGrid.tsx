@@ -1,25 +1,27 @@
-import { Grid } from '@mui/material';
+import { Divider, Grid, Typography } from '@mui/material';
 import Link from 'next/link';
 import * as React from 'react';
 import styles from './styles.module.css'
 
 export function ProjectGrid() {
     return (
-        <Grid container spacing={3} justifyContent={'space-evenly'} className={'portfolio'}>
+        <Grid container className={'portfolio'} xs={12} mt={10} mb={3} justifyContent={'center'}>
+            <Grid item xs={12} mb={2}><Typography variant="h4" style={{ color: '#F8EEE7', textAlign: 'center', fontFamily: 'Montserrat Alternates' }} gutterBottom>CSS Art & Projects</Typography></Grid>
             {itemData.map((item) => (
-                <Grid item key={item.id} className={styles.item}>
+                <Grid item key={item.id} pt={3}>
                     <Link href={item.link}>
                         <figure className={styles.hoverImg}>
                             <figcaption className={styles.figCaption}>
-                                <h3 style={{ fontFamily: 'Courier New' }}>View Code</h3>
+                                <h3 style={{ fontFamily: "'Montserrat Alternates" }}>View Code</h3>
                             </figcaption>
                             <img
+                                style={{ border: '5px solid #49274A', borderRadius: '10%' }}
                                 src={`${item.img}`}
                                 srcSet={`${item.img}`}
                                 alt={item.title}
                                 loading="lazy"
-                                width={450}
-                                height={250}
+                                width={375}
+                                height={200}
                             />
                         </figure>
                     </Link>

@@ -24,12 +24,13 @@
     color: #fff;
     display: inline-block;
     margin: 8px;
-    max-width: 500px;
-    min-width: 300px;
+    max-width: 450px;
+    min-width: 250px;
     overflow: hidden;
     position: relative;
     text-align: center;
     width: 100%;
+    border-radius: 10%;
 }
 
 .hoverImg * {
@@ -75,7 +76,6 @@
     z-index: 2;
     transition-delay: 0.1s;
     font-size: 24px;
-    font-family: sans-serif;
     font-weight: 400;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -83,7 +83,6 @@
 
 .hoverImg:hover::before,
 .hoverImg:hover::after {
-    transform: scale(1);
     opacity: 1;
 }
 

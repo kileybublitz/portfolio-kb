@@ -1,17 +1,23 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
+import Introduction from '../components/introduction/introduction'
+import { Sections } from '../components/sections/sections'
+import { Grid, useMediaQuery, useTheme } from '@mui/material'
 import { ProjectGrid } from '@/components/projectGrid/projectGrid'
+import { useState } from 'react'
+import AboutMe from '../components/aboutMe/aboutMe'
 import { AppBarMain } from '@/components/appBarMain/appBarMain'
-import { AboutMeBlurb } from '@/components/aboutMeBlurb/aboutMeBlurb'
-// import { Introduction } from '@/components/introduction/introduction'
-import AboutMePage from './aboutMe'
-import PageIntroduction from './introduction'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
+
 export default function Home() {
+  const [selected, setSelected] = useState('');
+  const theme = useTheme();
+  const smallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <>
       <Head>
@@ -21,8 +27,17 @@ export default function Home() {
         <link rel="icon" href="/avatar.ico" />
       </Head>
       <main className={styles.main}>
-        <PageIntroduction />
+        <AppBarMain selected={selected} setSelected={setSelected} />
+        <Grid container>
+          {selected === '' && <Grid item><Introduction /></Grid>}
+          {selected === 'portfolio' && <Grid item><ProjectGrid /></Grid>}
+          {selected === 'aboutMe' && <Grid item><AboutMe /></Grid>}
+          {!smallScreen && <Sections setSelected={setSelected} />}
+        </Grid>
       </main>
+
+
+
     </>
   )
 }

@@ -1,13 +1,21 @@
 import * as React from 'react';
-import { AppBar, Box, CssBaseline, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography, Button } from '@mui/material';
+import { AppBar, Box, CssBaseline, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography, Button, Grid } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu'
 import Image from 'next/image';
-// import Link from 'next/link';
-import { useRouter } from 'next/router';
-import styles from './styles.module.css'
-// import ScrollLink from '../scrollLink/scrollLink';
 
-export function AppBarMain() {
+import { useRouter } from 'next/router';
+
+import DownloadIcon from '@mui/icons-material/Download';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import EmailIcon from '@mui/icons-material/Email';
+import Link from 'next/link';
+
+interface Props {
+    selected: string;
+    setSelected: React.Dispatch<React.SetStateAction<string>>
+}
+
+export function AppBarMain({ selected, setSelected }: Props) {
     const router = useRouter();
     const drawerWidth = 240;
     const navItems = [{ className: 'aboutMe', title: 'About Me' }, { className: 'portfolio', title: 'Portfolio' }, { className: 'contact', title: 'Contact' }];
@@ -19,14 +27,10 @@ export function AppBarMain() {
 
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-            <Typography variant="h6" sx={{ my: 2 }}>
-                Kiley Bublitz
-            </Typography>
-            <Divider />
             <List>
                 {navItems.map((item) => (
                     <ListItem key={item.title} disablePadding>
-                        <ListItemButton sx={{ textAlign: 'center' }}>
+                        <ListItemButton sx={{ textAlign: 'center' }} onClick={() => { setSelected(item.className) }}>
                             <ListItemText primary={item.title} style={{ color: 'black' }} />
                         </ListItemButton>
                     </ListItem>
@@ -37,28 +41,46 @@ export function AppBarMain() {
 
 
     return (
-        <Box sx={{ display: 'flex' }}>
+        <Box sx={{ display: 'flex', position: 'sticky' }}>
             <CssBaseline />
-            <AppBar component="nav" sx={{ backgroundColor: 'white', boxShadow: 'none' }}>
+            <AppBar component="nav" sx={{ backgroundColor: '#94618E', boxShadow: 'none' }}>
                 <Toolbar>
-                    <IconButton
-                        aria-label="open drawer"
-                        edge="start"
-                        onClick={handleDrawerToggle}
-                        sx={{ mr: 2, display: { sm: 'none' }, color: 'black' }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Box mt={1} sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
-                        <Image src='/avatar.ico' alt='Kiley avatar' width={75} height={75} onClick={() => router.push('/')} className={styles.avatar} />
-                    </Box>
-                    <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-                        {navItems.map((item) => (
-                            <Button key={item.title} sx={{ color: 'black' }} onClick={() => router.push(`/${item.className}`)}>
-                                {item.title}
-                            </Button>
-                        ))}
-                    </Box>
+                    <Grid container flexGrow={1} alignItems={'center'}>
+                        <IconButton
+                            aria-label="open drawer"
+                            edge="start"
+                            onClick={handleDrawerToggle}
+                            sx={{ mr: 2, display: { sm: 'none' }, color: '#F8EEE7' }}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <a onClick={() => setSelected('')} style={{ cursor: 'pointer' }}>
+                            <Typography>kiley bublitz</Typography>
+                        </a>
+                    </Grid>
+                    <Grid container spacing={3} justifyContent={'flex-end'} sx={{ display: { xs: 'none', sm: 'flex' } }} wrap='nowrap'>
+                        <Grid item>
+                            <Link href='/Resume-Kiley-Bublitz.pdf' download target={'_blank'}>
+                                <IconButton sx={{ backgroundColor: '#94618E', color: '#F8EEE7' }}>
+                                    <DownloadIcon />
+                                </IconButton>
+                            </Link>
+                        </Grid>
+                        <Grid item>
+                            <Link href='https://www.linkedin.com/in/kiley-bublitz-0223a6b8/' target={'_blank'}>
+                                <IconButton sx={{ backgroundColor: '#94618E', color: '#F8EEE7' }}>
+                                    <LinkedInIcon />
+                                </IconButton>
+                            </Link>
+                        </Grid>
+                        <Grid item>
+                            <IconButton sx={{ backgroundColor: '#94618E', color: '#F8EEE7' }} >
+                                <a href="mailto:kiley.bublitz@gmail.com">
+                                    <EmailIcon />
+                                </a>
+                            </IconButton>
+                        </Grid>
+                    </Grid>
                 </Toolbar>
             </AppBar>
             <Box component="nav">

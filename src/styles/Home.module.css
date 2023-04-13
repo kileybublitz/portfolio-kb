@@ -1,10 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&family=Inter:wght@100&family=Montserrat+Alternates:wght@200&family=Rajdhani:wght@300&display=swap');
+
+body .main {
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
 .main {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6rem;
+  /* padding-top: 8rem;
+  padding-right: 6rem;
+  padding-left: 6rem; */
+  /* padding-top: 6rem; */
   min-height: 100vh;
+  background: #94618E;
 }
 
 .description {
@@ -202,7 +209,6 @@
 .containerTyped {
   text-align: center;
   display: inline-block;
-  font-family: 'Courier New', monospace;
 }
 
 .typed {
@@ -215,6 +221,9 @@
   animation-fill-mode: forwards;
   color: black;
 }
+
+
+
 
 /* conditionally render wrapping based on screen size */
 
