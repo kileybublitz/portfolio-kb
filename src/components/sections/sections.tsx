@@ -43,3 +43,4 @@ export function Sections({ setSelected }: Props) {
         </>
     )
 }
+
