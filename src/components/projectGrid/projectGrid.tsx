@@ -2,6 +2,7 @@ import { Divider, Grid, Typography } from '@mui/material';
 import Link from 'next/link';
 import * as React from 'react';
 import styles from './styles.module.css'
+import Image from 'next/image';
 
 export function ProjectGrid() {
     return (
@@ -14,10 +15,9 @@ export function ProjectGrid() {
                             <figcaption className={styles.figCaption}>
                                 <h3 style={{ fontFamily: "'Montserrat Alternates" }}>View Code</h3>
                             </figcaption>
-                            <img
+                            <Image
                                 style={{ border: '5px solid #49274A', borderRadius: '10%' }}
                                 src={`${item.img}`}
-                                srcSet={`${item.img}`}
                                 alt={item.title}
                                 loading="lazy"
                                 width={375}
